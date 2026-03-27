@@ -40,10 +40,21 @@ def simple_calculator(operation: str, num1: float, num2: float) -> float:
 def main():
     
     print(f"===== Simple Calculator =====")
-
+    num1 = "a"
+    num2 = "a"
     # Ask the user for sample input    
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
+    while isinstance(num1, str):
+        try:
+            num1 = float(input("Enter the first number: "))
+        except Exception:
+            num1 = "a"
+    
+    while isinstance(num2, str):
+        try:
+            num2 = float(input("Enter the second number: "))
+        except Exception:
+            num2 = "a"
+
     operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
 
     # Perform the calculation and display the result
